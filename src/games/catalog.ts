@@ -5,7 +5,7 @@ export const games: GameDefinition[] = [
     id: "kodewords",
     name: "KodeWords",
     description: "A fast-paced word guessing party game.",
-    thumbnail: "/games/kodewords/thumbnail.webp",
+    thumbnail: "/games/kodewords/thumbnail.jpeg",
     type: "html5",
     url: "https://kodewords.pages.dev",
   },
