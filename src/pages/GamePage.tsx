@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import { games } from "../games/catalog";
 import { GameLoader } from "@/components/GameLoader";
 import { ArrowLeft } from "lucide-react";
+import { useGames } from "@/games/useGames";
 
 function GamePage() {
   const { gameId } = useParams();
-
+  const games = useGames();
   const game = games.find(game => game.id === gameId);
 
   if (!game) {

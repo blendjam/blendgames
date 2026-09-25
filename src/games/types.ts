@@ -1,11 +1,10 @@
-export type GameType = "react" | "html5";
+export type GameLaunchMode = "redirect" | "iframe";
 
 export type GameDefinition = {
   id: string;
   name: string;
   description: string;
   thumbnail: string;
-  type: GameType;
-  // Where the actual game is hosted
+  launchMode: GameLaunchMode;
   url: string;
 };

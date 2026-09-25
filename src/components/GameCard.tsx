@@ -1,15 +1,25 @@
-import { Link } from "react-router-dom";
 import type { GameDefinition } from "@/games/types";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 type GameCardProps = {
   game: GameDefinition;
 };
 
 export function GameCard({ game }: GameCardProps) {
+  const navigate = useNavigate();
+
+  const handleGameClick = () => {
+    if (game.launchMode === "redirect") {
+      window.location.href = game.url;
+    } else if (game.launchMode === "iframe") {
+      navigate(`/games/${game.id}`);
+    }
+  };
+
   return (
-    <Link
-      to={`/games/${game.id}`}
+    <button
+      onClick={handleGameClick}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10">
       <div className="aspect-video overflow-hidden bg-white/5">
         <img
@@ -29,6 +39,6 @@ export function GameCard({ game }: GameCardProps) {
           <ArrowRight size={12} />
         </div>
       </div>
-    </Link>
+    </button>
   );
 }
